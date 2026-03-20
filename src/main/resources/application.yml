@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+  health:
+    db:
+      enabled: true
+    diskspace:
+      enabled: true
+    ping:
+      enabled: true
+  metrics:
+    tags:
+      application: rag-chat-storage-service
+
+rate-limit:
+  sessions:
+    # Maximum number of requests allowed within the defined time window.
+    # Corresponds to the capacity of the token bucket.
+    count: ${RATE_LIMIT}
+
+    # Time window (in minutes) after which the request count resets.
+    # Corresponds to the refill interval.
+    expiry-minutes: ${EXPIRY_TIME}
+
+app:
+  api-key: ${API_KEY}
+
+security:
+  api-keys:
+    - key: ${ADMIN_KEY}
+      role: ADMIN
+    - key: ${VIEWER_KEY}
+      role: VIEWER
+    - key: ${SESSIONS_KEY}
+      role: SESSIONS_USER

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STASH" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+
+            <customFields>{"applicationName":"rag_chat_storage"}</customFields>
+
+            <jsonProviders>
+                <context/>
+                <version/>
+                <logLevel/>
+                <threadName/>
+                <mdc/>
+                <className/>
+                <message/>
+                <logException/>
+                <stackTrace/>
+            </jsonProviders>
+
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STASH" />
+    </root>
+
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+
+</configuration>
