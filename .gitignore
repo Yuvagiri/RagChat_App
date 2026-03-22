@@ -41,7 +41,3 @@ build/
 # OS files
 .DS_Store
 Thumbs.db
-
-# Environment files (VERY IMPORTANT)
-.env
-.env.*

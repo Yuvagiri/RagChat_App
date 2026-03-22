@@ -100,6 +100,7 @@ Details information on requests,headers are provided in [api_documentations](htt
 * PGadmin dockerized for easy access (creds are stored in .env) available at http://localhost:5050/
 * Swagger UI Implementation available at http://localhost:8080/swagger-ui/index.html
 * CORS implemented, provided option to change or update during prod deployment
+* Unit Tests added
 ```
 
 ---
